@@ -49,9 +49,9 @@ resource "azurerm_container_app_environment" "app_env" {
   location                   = azurerm_resource_group.rg.location
   resource_group_name        = azurerm_resource_group.rg.name
   log_analytics_workspace_id = azurerm_log_analytics_workspace.log_analytics.id
-   workload_profiles {
+   workload_profile {
     name = "sbprocessor-workload"
-    type = "D4_v3"
+    workload_profile_type = "D4_v3"
   }
 
   infrastructure_subnet_id = module.virtual_network.app_subnet_id
