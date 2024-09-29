@@ -10,7 +10,7 @@ variable "applicationName" {
 
 variable "location" {
   description = "Primary location of the services"
-  default     = "westeurope"
+  default     = "westus3"
 }
 
 variable "acr_sku" {

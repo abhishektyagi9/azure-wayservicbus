@@ -49,6 +49,10 @@ resource "azurerm_container_app_environment" "app_env" {
   location                   = azurerm_resource_group.rg.location
   resource_group_name        = azurerm_resource_group.rg.name
   log_analytics_workspace_id = azurerm_log_analytics_workspace.log_analytics.id
+   workload_profiles {
+    name = "sbprocessor-workload"
+    type = "D4_v3"
+  }
 
   infrastructure_subnet_id = module.virtual_network.app_subnet_id
 }
@@ -102,7 +106,7 @@ resource "azurerm_container_app" "sampleapi" {
     }
 
     min_replicas = 0
-    max_replicas = 25
+    max_replicas = 200
   }
 
   secret {
